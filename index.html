@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <title>MyDailyTasks - Aplicativo</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="app-container flex-col">
+            <header class="flex-center flex-row">
+                <h1 id="header-title">MyDailyTasks</h1>
+            </header>
+            <main>
+                <section id="primary-options" class="flex-col flex-center" style="gap: 20%;">
+                    <h2>O que deseja fazer a seguir?</h2>
+                    <nav class="flex-row flex-around" style="width: 100%;">
+                        <button id="new-task" class="btn-select">
+                            <p>Novo</p>
+                        </button>
+                        <button id="finish-task" class="btn-select">
+                            <p>Concluir</p>
+                        </button>
+                        <button id="delete-task" class="btn-select">
+                            <p>Excluir</p>
+                        </button>
+                    </nav>
+                </section>
+
+                <section id="user-tasks" class="flex-col">
+                    <h2>Tarefas pendentes</h2>
+                    <p style="padding-left: 0.5%;">Nome | Prioridade</p>
+                    <nav class="flex-col">
+                        <!-- Botões card para manipular no JS, atualmente como template -->
+                        <button class="task">
+                            <div class="task-name">
+                                <span>Fazer compras</span>
+                            </div>
+                            <div class="task-priority">
+                                <span>ALTA</span>
+                            </div>
+                        </button>
+                        <button class="task">
+                            <div class="task-name">
+                                <span>Estudar</span>
+                            </div>
+                            <div class="task-priority">
+                                <span>MÉDIA</span>
+                            </div>
+                        </button>
+                        <button class="task">
+                            <div class="task-name">
+                                <span>Assistir uma série</span>
+                            </div>
+                            <div class="task-priority">
+                                <span>BAIXA</span>
+                            </div>
+                        </button>
+                        <button class="task">
+                            <div class="task-name">
+                                <span>Visitar meus parentes</span>
+                            </div>
+                            <div class="task-priority">
+                                <span>ALTA</span>
+                            </div>
+                        </button>
+                    </nav>
+                </section>
+            </main>
+            <footer class="flex-center">
+                <!--Botões-->
+                <nav class="flex-center" style="gap: 10%; font-weight: bold;">
+                    <button id="return-page-btn" style="display: none;"><</button>
+                    <span id="page-switch-text">Ver concluídos</span>
+                    <button id="advance-page-btn">></button>
+                    <!-- Com a implementação do JS, os botões de ida e volta serão ocultados conforme a página
+                    atual -->
+                </nav>
+            </footer>
+        </div>
+    </body>
+</html>
