@@ -329,13 +329,24 @@ const TaskController = {
     },
 
     handleBatchAction() {
+        const animClass = this.selectionMode === 'finish' ? 'anim-finish' : 'anim-delete';
+
         this.selectedIds.forEach(id => {
-            if (this.selectionMode === 'delete') TaskModel.delete(id);
-            if (this.selectionMode === 'finish') TaskModel.toggleStatus(id, true);
+            const btn = document.querySelector(`.task[data-id="${id}"]`);
+            if (btn) {
+                btn.classList.add(animClass);
+            }
         });
-        
-        this.exitSelectionMode();
-        TaskView.renderAll(TaskModel.getAll());
+
+        setTimeout(() => {
+            this.selectedIds.forEach(id => {
+                if (this.selectionMode === 'delete') TaskModel.delete(id);
+                if (this.selectionMode === 'finish') TaskModel.toggleStatus(id, true);
+            });
+            
+            this.exitSelectionMode();
+            TaskView.renderAll(TaskModel.getAll());
+        }, 500);
     },
 
     handleDeletePermanent(id) {
